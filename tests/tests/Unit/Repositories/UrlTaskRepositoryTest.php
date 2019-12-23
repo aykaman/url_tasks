@@ -2,14 +2,14 @@
 
 namespace Tests\Unit\Repositories;
 
-use App\Repositories\TaskRepository;
+use App\Repositories\UrlTaskRepository;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use TasksTableSeeder;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class TaskRepositoryTest extends TestCase
+class UrlTaskRepositoryTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -26,7 +26,7 @@ class TaskRepositoryTest extends TestCase
      */
     public function testExample()
     {
-        $repository = new TaskRepository();
+        $repository = new UrlTaskRepository();
         $url = 'https://www.cashber.kz/images/logo_main.png?time=' . time();
         $model = $repository->createFromUrl($url);
         $this->assertEquals(TasksTableSeeder::NEW_ID, $model->id);
